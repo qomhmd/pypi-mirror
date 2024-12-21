@@ -313,7 +313,7 @@ def generate_root_html(pkg_names: Iterable[Tuple[str, str]]) -> str:
     {}
   </body>
 </html>"""
-    anchor_tmpl = '<a href="{0}/index.html">{1}</a>'
+    anchor_tmpl = '<a href="pypi/{0}/index.html">{1}</a>'
     anchors = "\n    ".join(
         anchor_tmpl.format(norm_name, name) for norm_name, name in pkg_names
     )
@@ -332,7 +332,7 @@ def generate_pkg_html(pkgs: Sequence[Pkg]) -> str:
     {1}
   </body>
 </html>"""
-    anchor_tmpl = '<a href="{0}#sha256={1}">{0}</a><br/>'
+    anchor_tmpl = '<a href="pypi/{0}#sha256={1}">{0}</a><br/>'
     anchors = []
     for pkg in pkgs:
         h = pkg.metadata.sha256
